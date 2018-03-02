@@ -51,7 +51,6 @@ def load_image(file_name):
 def load_all_images(ext='.tif'):
     file_list = os.listdir(PATH_TO_TRAINING_DATA)
     file_list = [f for f in file_list if f.endswith(ext)]
-    images = [load_image(os.path.join(PATH_TO_TRAINING_DATA, f))
-              for f in file_list]
-    return images
+    return {f: load_image(os.path.join(PATH_TO_TRAINING_DATA, f))
+              for f in file_list}
 
